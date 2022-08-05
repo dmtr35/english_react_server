@@ -17,8 +17,8 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({
-    credentials: true,                                 // разрешаем кукки
-    origin: true                                      // URL нашего фронтенда
+    credentials: true,                                                     // разрешаем кукки
+    origin: true                                                          // URL нашего фронтенда
 }))
 app.use(express.static(path.resolve(__dirname, 'static')))
 app.use(fileUpload({}))

@@ -29,15 +29,9 @@ class CollectionsController {
             const { name, filterArrWord } = req.body
             const words = JSON.parse(filterArrWord)
             const file = req.files.file
-            // console.log('file:', file)
-            // console.log('words:', words)
-            
-            
             await file.mv(path.resolve(__dirname, 'static', 'dictionary.txt'))
             const readFile = util.promisify(fs.readFile);
             const result = await readFile(path.resolve(__dirname, './static/dictionary.txt'), 'utf-8')
-            // console.log('result:', result)
-            
             result.split(/\r?\n/).forEach(line => {
                 if (line.length === 0) {
                     return
@@ -82,7 +76,6 @@ class CollectionsController {
             await file.mv(path.resolve(__dirname, 'static', 'dictionary.txt'))
             const readFile = util.promisify(fs.readFile);
             const result = await readFile(path.resolve(__dirname, './static/dictionary.txt'), 'utf-8')
-            // console.log('result:', result)
             result.split(/\r?\n/).forEach(line => {
                 if (line.length === 0) {
                     return
